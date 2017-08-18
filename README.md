@@ -1,2 +1,3 @@
-# LaunchSchool-Course-101
-Programming Foundations
+# LaunchSchool
+
+GitHub for all my LaunchSchool work.
