@@ -20,8 +20,8 @@ def repeat(string, number)
   
   loop do 
     puts "Checking number validation"
-    break if number.is_a? Numeric
-    puts "Number not valid! Please enter a valid string!"
+    break if (number.is_a? Numeric) && (number > 0)
+    puts "Number not valid! Please enter a valid number!"
     number = gets.chomp.to_i
   end
   puts "Number valid!"
@@ -32,4 +32,4 @@ def repeat(string, number)
   
 end
 
-repeat("hello", 7)
+repeat("hello", 0)
