@@ -4,9 +4,7 @@
 # Output:Hash with key(e.g. car), values (occurances)
 # Rules: Array of vechiles provided, each occurance in the array must be counted, hash returned as output
 # Algorithm: -Create a new hash with a default value of "0"
-#-Iterate through the array and increment for each key e.g. hash[key] = value
-
-
+# Iterate through the array and increment for each key e.g. hash[key] = value
 
 
 vehicles = ['car', 'car', 'truck', 'car', 'SUV', 'truck', 'motorcycle', 'motorcycle', 'car', 'truck']

@@ -40,7 +40,7 @@ loop do
   name = Kernel.gets().chomp()
 
   if name.empty?()
-    prompt("Make sure a valid is entered!")
+    prompt("Make sure a valid name is entered!")
   else
       break
     end
