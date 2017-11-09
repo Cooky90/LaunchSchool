@@ -5,8 +5,7 @@ def prompt(message)
 end
 
 def you_win?(player, computer, rules_lookup)
-  if player == computer
-  else
+  if player != computer
     rules_lookup.each do |key, value|
       if player == key && value.include?(computer)
         return true
@@ -18,7 +17,7 @@ end
 
 def display_results(player, computer, rules_lookup)
   puts "You chose #{player} and the computer chose #{computer}."
-  if you_win?(player, computer, rules_lookup) == true
+  if you_win?(player, computer, rules_lookup)
     puts "Player Won!"
   elsif you_win?(player, computer, rules_lookup) == false
     puts "Computer Won!"
@@ -28,12 +27,22 @@ def display_results(player, computer, rules_lookup)
 end
 
 def convert_shortcut(string)
-  return 'rock' if string.start_with?('r')
-  return 'paper' if string.start_with?('p')
-  return 'spock' if string.start_with?('sp')
-  return 'scissors' if string.start_with?('s')
-  return 'lizard' if string.start_with?('l')
+  case string
+  when 'r'
+    'rock'
+  when 'p'
+    'paper'
+  when 'sp'
+    'spock'
+  when 's'
+    'scissors'
+  when 'l'
+    'lizard'
+  end
 end
+
+puts "Welcome to Rock,Paper,Scissors,Spock,Lizard!
+The first to five wins, wins the overall game!\n\n"
 
 loop do
   player_score = 0
@@ -66,19 +75,16 @@ loop do
       "spock" => ['scissors', 'rock'],
       "lizard" => ['spock', 'paper']
     }
-
+    system("clear")
     display_results(player_choice, computer_choice, rules)
-
     if you_win?(player_choice, computer_choice, rules)
       player_score += 1
     elsif you_win?(player_choice, computer_choice, rules) == false
       computer_score += 1
-    else
-      player_score += 1 # This is accounting for a draw, by adding +1 to both.
-      computer_score += 1
     end
 
-    puts "\n-Current Score- \nPlayer Score: #{player_score}\nComputer Score: #{computer_score}\n"
+    puts "\n-Current Score- \nPlayer Score: #{player_score}
+Computer Score: #{computer_score}\n\n"
 
     if player_score == 5 && computer_score == 5
       puts "Final Result: Draw!"
@@ -89,9 +95,9 @@ loop do
     end
   end
 
-  prompt("Do you want to play again?(Enter 'y' or 'n')")
+  prompt("Do you want to play again?(Enter 'n' to quit!)")
   answer = Kernel.gets().chomp()
-  break if answer.downcase().start_with?('n')
+  break if answer.downcase() == 'n'
 end
 
 puts "\nThank you for playing!"
