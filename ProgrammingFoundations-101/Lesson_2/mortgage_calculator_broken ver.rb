@@ -45,8 +45,11 @@ loop do
   Kernel.puts('Input could not be validated. Please try again.')
 end
 
-interest_rate_monthly = (interest_rate.to_i / 12)
+annual_interest_rate = interest_rate.to_f() / 100
+interest_rate_monthly = (annual_interest_rate / 12)
 
-monthly_repayments = loan_amount.to_f * (interest_rate_monthly.to_f / (1 - (1 + interest_rate_monthly.to_f)**(- loan_duration_months.to_i)))
-puts monthly_repayments
+monthly_repayments = loan_amount.to_f * 
+                    (interest_rate_monthly / 
+                    (1 - (1 + interest_rate_monthly.to_f)**(- loan_duration_months.to_i())))
 
+puts "Your monthly repayment is: £#{format('%02.2f',monthly_repayments)}"
